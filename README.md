@@ -34,8 +34,7 @@ Firebase()
 ```
 
 [firebase.py](https://github.com/broccolingual/firebase/blob/master/firebase.py)
-をimportしてFirebaseオブジェクトを作り、第1引数にはFirebase Realtime Databaseのリンクを、第2引数には"/users"のような形式でテーブルを指定する必要があります。
-<br>※テーブルが存在しない場合には、自動で作成されます。
+をimportしてFirebaseオブジェクトを作る必要があります。
 
 ---
 ### ディレクトリの配置方法
