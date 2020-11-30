@@ -58,15 +58,15 @@ class Firebase(object):
         except Exception as e:
             logger.error(f'データのpushに失敗しました.\n{e}')
 
-    # def set(self, data, path=""):
-    #     try:
-    #         if self._check_path(path):
-    #             self.ref.child(path).set(data)
-    #         else:
-    #             self.ref.set(data)
+    def set(self, data, path=""):
+        try:
+            if self._check_path(path):
+                self.ref.child(path).set(data)
+            else:
+                self.ref.set(data)
 
-    #     except Exception as e:
-    #         logger.error(f'データのsetに失敗しました.\n{e}')
+        except Exception as e:
+            logger.error(f'データのsetに失敗しました.\n{e}')
 
     def update(self, updates, path=""):
         try:
