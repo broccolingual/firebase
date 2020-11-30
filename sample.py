@@ -30,3 +30,6 @@ firebase = Firebase()
 # # データの取得
 # data = firebase.get()
 # print(data)
+
+# # データの削除
+# firebase.delete()

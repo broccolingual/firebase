@@ -47,8 +47,6 @@ class Firebase(object):
     def _check_path(path) -> bool:
         if path == "":
             return False
-        else:
-            return True
 
     def push(self, data, path=""):
         try:
@@ -60,15 +58,15 @@ class Firebase(object):
         except Exception as e:
             logger.error(f'データのpushに失敗しました.\n{e}')
 
-    def set(self, data, path=""):
-        try:
-            if self._check_path(path):
-                self.ref.child(path).set(data)
-            else:
-                self.ref.set(data)
+    # def set(self, data, path=""):
+    #     try:
+    #         if self._check_path(path):
+    #             self.ref.child(path).set(data)
+    #         else:
+    #             self.ref.set(data)
 
-        except Exception as e:
-            logger.error(f'データのsetに失敗しました.\n{e}')
+    #     except Exception as e:
+    #         logger.error(f'データのsetに失敗しました.\n{e}')
 
     def update(self, updates, path=""):
         try:
@@ -89,3 +87,13 @@ class Firebase(object):
 
         except Exception as e:
             logger.error(f'データの取得に失敗しました.\n{e}')
+
+    def delete(self, path=""):
+        try:
+            if self._check_path(path):
+                self.ref.child(path).update({})
+            else:
+                self.ref.update({})
+                
+        except:
+            logger.error(f'データの削除に失敗しました.\n{e}')

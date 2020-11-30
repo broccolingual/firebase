@@ -7,20 +7,23 @@ Firebaseとpython上でやり取りするためには、Firebase側での設定�
 
 ---
 ##### 1. アクセス権限の設定
-
+<br>
 Firebaseでプロジェクトを作成した後にRealtime Databaseのルールのページより、下記の画像ような記述で読み込み及び書き込みの設定を行う必要があります。
 <br>
 <br>![rule](https://gyazo.com/5a21f9e01de4edad69cdbb2671c5a138.png)
+
 ---
 ##### 2. 認証用jsonファイルの生成
-
+<br>
 プロジェクトの設定ページのサービスアカウントのページより、pythonのオプションを選択して、新しい秘密鍵の生成を行う必要があります。
 これによりダウンロードされたファイルは厳重に管理したうえで、実行ファイルと同じ階層においておく必要があります。
 <br>`※jsonファイルの名前は任意でも可。同じディレクトリに別のjsonファイルがある場合は認識しない可能性があります。`
 <br>
 <br>![json](https://gyazo.com/16016c874eb7e2e5790612033aeccdc2.png)
+
 ---
 ### Python上での呼び出し方
+<br>
 本体は[firebase.py](https://github.com/broccolingual/firebase/blob/master/firebase.py)
 となっています。
 Firebaseとのやり取りを行うためにはデータベースの認証用にFirebaseから発行できるjsonファイルを実行ファイルと同じ階層においておく必要があります。
@@ -48,9 +51,9 @@ Firebase()
 ### 利用可能なメソッド
 ```python
 push(data, path) # データの格納(Keyは時系列データを含む任意のキーになる.)
-set(data, path) # データの格納(※例外以外は使用禁止 -> updateで代用してください)
 update(updates, path) # データのアップデート(格納)
 get(path) # データの取得
+delete(path) # データの削除
 ```
 
 `※各メソッドのpathは任意指定.無指定の場合は，ルートディレクトリ.`
