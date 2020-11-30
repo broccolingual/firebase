@@ -10,7 +10,8 @@ Firebaseとpython上でやり取りするためには、Firebase側での設定�
 <br>
 Firebaseでプロジェクトを作成した後にRealtime Databaseのルールのページより、下記の画像ような記述で読み込み及び書き込みの設定を行う必要があります。
 <br>
-<br>![rule](https://gyazo.com/5a21f9e01de4edad69cdbb2671c5a138.png)
+![rule](https://gyazo.com/5a21f9e01de4edad69cdbb2671c5a138.png)
+
 ---
 ##### 2. 認証用jsonファイルの生成
 <br>
@@ -18,7 +19,8 @@ Firebaseでプロジェクトを作成した後にRealtime Databaseのルール�
 これによりダウンロードされたファイルは厳重に管理したうえで、実行ファイルと同じ階層においておく必要があります。
 <br>`※jsonファイルの名前は任意でも可。同じディレクトリに別のjsonファイルがある場合は認識しない可能性があります。`
 <br>
-<br>![json](https://gyazo.com/16016c874eb7e2e5790612033aeccdc2.png)
+![json](https://gyazo.com/16016c874eb7e2e5790612033aeccdc2.png)
+
 ---
 ### Python上での呼び出し方
 <br>
