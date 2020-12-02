@@ -26,13 +26,18 @@ Firebaseでプロジェクトを作成した後にRealtime Databaseのルール�
 ---
 ### Python上での呼び出し方
 <br>
-本体は[firebase.py](https://github.com/broccolingual/firebase/blob/master/firebase.py)
+本体は
+
+[firebase.py](https://github.com/broccolingual/firebase/blob/master/firebase.py)
+
 となっています。
 Firebaseとのやり取りを行うためにはデータベースの認証用にFirebaseから発行できるjsonファイルを実行ファイルと同じ階層においておく必要があります。
 <br>
 <br>※オブジェクトの生成にはDatabaseのURLが必要です。URLのフォーマットは以下のような形式です。
 <br>https://YOUR-DATABASE-NAME.firebaseio.com/
-<br>データベースのURLは，`config.ini`にあらかじめ書いておく必要があります。
+<br>データベースのURLは，
+`config.ini`
+にあらかじめ書いておく必要があります。
 
 ```python
 Firebase()
