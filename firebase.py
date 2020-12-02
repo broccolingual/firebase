@@ -95,5 +95,5 @@ class Firebase(object):
             else:
                 self.ref.update({})
                 
-        except:
+        except Exception as e:
             logger.error(f'データの削除に失敗しました.\n{e}')
