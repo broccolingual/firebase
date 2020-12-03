@@ -90,12 +90,13 @@ class Firebase(object):
         except Exception as e:
             logger.error(f'データの取得に失敗しました.\n{e}')
 
-    def delete(self, path=""):
+    def delete(self, key, path=""):
+        updates = {key: {}}
         try:
             if self._check_path(path):
-                self.ref.child(path).update({})
+                self.ref.child(path).update(updates)
             else:
-                self.ref.update({})
+                self.ref.update(updates)
                 
         except Exception as e:
             logger.error(f'データの削除に失敗しました.\n{e}')
