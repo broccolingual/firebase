@@ -96,10 +96,15 @@ class Firebase(object):
 
     def get(self, path=""):
         try:
+            data = None
+            start = time.time()
             if self._check_path(path):
-                return self.ref.child(path).get()
+                data = self.ref.child(path).get()
             else:
-                return self.ref.get()
+                data = self.ref.get()
+            end = time.time()
+            logger.info("elapsed time: {:.2f}s".format(end - start))
+            return data
 
         except Exception as e:
             logger.error(f'データの取得に失敗しました.\n{e}')
