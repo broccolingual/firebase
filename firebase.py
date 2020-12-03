@@ -47,6 +47,8 @@ class Firebase(object):
     def _check_path(path) -> bool:
         if path == "":
             return False
+        else:
+            return True
 
     def push(self, data, path=""):
         try:

@@ -28,8 +28,8 @@ firebase = Firebase()
 # firebase.update(updates)
 
 # # データの取得
-# data = firebase.get()
-# print(data)
+data = firebase.get("data/message")
+print(data)
 
 # # データの削除
 # firebase.delete()
