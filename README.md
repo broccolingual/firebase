@@ -60,7 +60,7 @@ Firebase()
 push(data, path) # データの格納(Keyは時系列データを含む任意のキーになる.)
 update(updates, path) # データのアップデート(格納)
 get(path) # データの取得
-delete(path) # データの削除
+delete(key_name, path) # データの削除
 ```
 
 `※各メソッドのpathは任意指定.無指定の場合は，ルートディレクトリ.`
