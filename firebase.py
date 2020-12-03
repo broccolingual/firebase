@@ -1,13 +1,14 @@
 import configparser
 import glob
 import logging
+import time
 
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.ERROR)  # Loglevelの設定
+logger.setLevel(logging.INFO)  # Loglevelの設定
 
 handler = logging.StreamHandler()
 handler.setFormatter(logging.Formatter('%(asctime)s:%(name)s:%(lineno)d:%(levelname)s:%(message)s'))
@@ -52,30 +53,43 @@ class Firebase(object):
 
     def push(self, data, path=""):
         try:
+            start = time.time()
             if self._check_path(path):
                 self.ref.child(path).push(data)
             else:
                 self.ref.push(data)
+            end = time.time()
+            logger.info("elapsed time: {:.2f}s".format(end-start))
 
         except Exception as e:
             logger.error(f'データのpushに失敗しました.\n{e}')
 
     def set(self, data, path=""):
         try:
+            start = time.time()
             if self._check_path(path):
                 self.ref.child(path).set(data)
             else:
                 self.ref.set(data)
+            end = time.time()
+            logger.info("elapsed time: {:.2f}s".format(end - start))
 
         except Exception as e:
             logger.error(f'データのsetに失敗しました.\n{e}')
 
     def update(self, updates, path=""):
         try:
+            start = time.time()
             if self._check_path(path):
+                before = self.ref.child(path).get()
                 self.ref.child(path).update(updates)
             else:
+                before = self.ref.get()
                 self.ref.update(updates)
+            after = updates
+            logger.info(f"successfully updated. {before} -> {after}")
+            end = time.time()
+            logger.info("elapsed time: {:.2f}s".format(end - start))
 
         except Exception as e:
             logger.error(f'データの更新に失敗しました.\n{e}')
@@ -93,10 +107,13 @@ class Firebase(object):
     def delete(self, key, path=""):
         updates = {key: {}}
         try:
+            start = time.time()
             if self._check_path(path):
                 self.ref.child(path).update(updates)
             else:
                 self.ref.update(updates)
+            end = time.time()
+            logger.info("elapsed time: {:.2f}s".format(end - start))
                 
         except Exception as e:
             logger.error(f'データの削除に失敗しました.\n{e}')

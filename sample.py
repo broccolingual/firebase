@@ -12,8 +12,8 @@ firebase = Firebase()
 
 # - データのアップデート -
 # 第一引数は辞書型のみ（str不可）
-# updates = {"test": "this is test !"}
-# firebase.update(updates, "data/message")
+updates = {"test": "this is test !"}
+firebase.update(updates, "data/message")
 
 # - データの取得 -
 # data = firebase.get("data/message")
