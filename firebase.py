@@ -62,11 +62,26 @@ class Firebase(object):
 
     @staticmethod
     def _make_auth_file_from_datas(data):
+        """
+        辞書型データから認証用jsonファイルを作成
+
+        Parameters
+        ----------
+        data : dict
+            認証用の辞書型データ
+        """
         with open('./firebase_auth.json', 'w') as f:
             json.dump(data, f, indent=4)
 
     @staticmethod
     def _make_auth_file_from_dotenv():
+        """
+        .envファイルもしくは環境変数から認証用jsonファイルを作成
+
+        See Also
+        --------
+        .envファイルもしくは環境変数の与え方については.env.sampleを参照
+        """
         d = {
             "type": os.environ.get("FIREBASE_TYPE"),
             "project_id": os.environ.get("FIREBASE_PROJECT_ID"),
@@ -84,12 +99,31 @@ class Firebase(object):
 
     @staticmethod
     def _check_path(path) -> bool:
+        """
+        Firebaseのデータの階層の判定
+
+        Parameters
+        ----------
+        path : str
+            相対パスの文字列
+
+        Returns
+        -------
+        bool
+            パスがカレントかそうでないかの真偽値
+        """
         if path == "":
             return False
         else:
             return True
 
     def _get_credentials(self):
+        """
+        Firebaseの接続の認証を取得
+        Firebaseから発行されたjsonファイルが同じディレクトリにない場合は、
+        .envファイル（環境変数）もしくはハードコーディングされたデータから
+        認証ファイルを自動作成。
+        """
         try:
             file_list = glob.glob('*.json')
             if file_list == []:

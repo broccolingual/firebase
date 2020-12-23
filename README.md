@@ -77,4 +77,4 @@ delete(key, path) # データの削除
 ---
 ### 製作者
 <img src="https://img.shields.io/badge/Broccolingual-9acd32.svg?style=for-the-badge">
-<br><img src="https://img.shields.io/badge/G--Mail-broccolingual@gmail.com-ffffff.svg?logo=gmail&style=flat-square">
+<img src="https://img.shields.io/badge/G--Mail-broccolingual@gmail.com-ffffff.svg?logo=gmail&style=flat-square">
