@@ -4,12 +4,13 @@
 GoogleドライブよりFirebase認証(共通DB)用のjsonファイルをダウンロードする。
 
 #### Step2.(このスクリプトを利用しない場合)
-pipでfirebase-adminをインストール
+pipインストール等でfirebase-adminをインストール
 ライブラリの使い方に関しては、下記の記事を参考にしてください。
 `https://qiita.com/sai-san/items/24dbee74c5744033c330`
 
 #### Step2.(このスクリプトを利用する場合)
-このレポジトリのfirebase.pyをダウンロードし、ソースコード上部のデータ入力欄に先ほどのjsonファイルの内容をコピーして貼り付ける。FIREBASE_URLには、`https://magiot.firebaseio.com/`を貼り付ける。
+このレポジトリの[firebase.py](https://github.com/broccolingual/firebase/blob/master/firebase.py)
+をダウンロードし、ソースコード上部のデータ入力欄に先ほどのjsonファイルの内容をコピーして貼り付ける。FIREBASE_URLには、`https://magiot.firebaseio.com/`を貼り付ける。
 
 <br>`firebase.py`
 ```python
@@ -35,14 +36,15 @@ FIREBASE_AUTH_DATA = {
 # ~下部省略~
 ```
 
+#### Step2.(このスクリプトを利用する場合(オプション:※環境変数を利用したい方向け))
+セキュリティ的に環境変数を利用したい方は[.env.sample](https://github.com/broccolingual/firebase/blob/master/.env.sample)
+を元に環境変数を設定して下さい。環境変数を設定するにはpipインストール等でpython-dotenvのライブラリをインストールする必要があります。
+<br>※.envファイルの利用も可能。
+
 #### Step3.(このスクリプトを利用する場合)
 自分の作成したpythonプログラムからfirebase.pyをインポートし、Firebaseオブジェクトを作成する。Firebaseクラスで利用できるメソッドは以下の通りである。
-
----
-### Firebaseのデータ構造
-<br>`data/flag`: 各ギミックのフラグのデータが格納されています。
-<br>`data/hint`: 送信するヒントのデータが格納されています。
-<br>`data/log`: 各ギミックの通過時間などのログデータが格納されています。
+<br>具体的な利用方法や各メソッドの引数の与え方の例については[sample.py](https://github.com/broccolingual/firebase/blob/master/sample.py)
+をご覧ください。
 
 ---
 ### 利用可能なメソッド
@@ -55,14 +57,17 @@ delete(key, path) # データの削除
 
 `※各メソッドのpathは任意指定.無指定の場合は，ルートディレクトリ.`
 
-具体的な利用方法や各メソッドの引数の与え方の例については[sample.py](https://github.com/broccolingual/firebase/blob/master/sample.py)
-をご覧ください。
+---
+### Firebaseのデータ構造
+<br>`data/flag`: 各ギミックのフラグのデータが格納されています。
+<br>`data/hint`: 送信するヒントのデータが格納されています。
+<br>`data/log`: 各ギミックの通過時間などのログデータが格納されています。
 
 ---
 ### 環境及び使用ライブラリ
 <img src="https://img.shields.io/badge/Python-3.8.5-3776AB.svg?logo=python&style=for-the-badge&logoColor=white">
-<img src="https://img.shields.io/badge/firebase--admin-4.4.0-FFCA28.svg?style=flat-squarデータ
-<img src="https://img.shields.io/badge/python--dotenv -4.4.0-430098.svg?style=flat-square">
+<img src="https://img.shields.io/badge/firebase--admin-4.4.0-FFCA28.svg?style=flat-square">
+<img src="https://img.shields.io/badge/python--dotenv-4.4.0-430098.svg?style=flat-square">
 
 ---
 ### License
