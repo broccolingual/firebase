@@ -1,11 +1,11 @@
-### pythonからFirebaseへの接続方法
+## pythonからFirebaseへの接続方法
 
 ---
-#### Step1.
+### 📌｜ Step1.
 共有のGoogleドライブよりFirebase認証(共通DB)用のjsonファイルをダウンロードする。
 
 ---
-#### Step2.(このスクリプトを利用しない場合)
+### 📌｜Step2.(このスクリプトを利用しない場合)
 pipインストール等でfirebase-adminのライブラリをインストールする。
 <br>DBのURLは`https://magiot.firebaseio.com/`
 を利用してください。
@@ -14,7 +14,7 @@ pipインストール等でfirebase-adminのライブラリをインストール
 <br>[参考記事(Qiita)](https://qiita.com/sai-san/items/24dbee74c5744033c330)
 
 ---
-#### Step2.(このスクリプトを利用する場合)
+### 📌｜Step2.(このスクリプトを利用する場合)
 このレポジトリの[firebase.py](https://github.com/broccolingual/firebase/blob/master/firebase.py)
 をダウンロードし、ソースコード上部のデータ入力欄にStep1のjsonファイルの内容をコピーして貼り付ける。FIREBASE_URLには、`https://magiot.firebaseio.com/`
 を貼り付ける。
@@ -44,19 +44,21 @@ FIREBASE_AUTH_DATA = {
 ```
 
 ---
-#### Step2.(このスクリプトを利用する場合(オプション:※環境変数を利用したい方向け))
+### 📌｜Step2.(このスクリプトを利用する場合(オプション))
+#### `※環境変数を利用したい方向け`
+
 セキュリティ的に環境変数を利用したい方は[.env.sample](https://github.com/broccolingual/firebase/blob/master/.env.sample)
 を元に環境変数を設定して下さい。環境変数を設定するにはpipインストール等でpython-dotenvのライブラリをインストールする必要があります。
 <br>`※.envファイルの利用も可能。`
 
 ---
-#### Step3.(このスクリプトを利用する場合)
+### 📌｜Step3.(このスクリプトを利用する場合)
 自分の作成したpythonプログラムからfirebase.pyをインポートし、Firebaseオブジェクトを作成する。Firebaseクラスで利用できるメソッドは以下の通りである。
 <br>具体的な利用方法や各メソッドの引数の与え方の例については[sample.py](https://github.com/broccolingual/firebase/blob/master/sample.py)
 をご覧ください。
 
 ---
-### 利用可能なメソッド
+## 利用可能なメソッド
 ```python
 push(data, path) # データの格納(Keyは時系列データを含む任意のキーになる.)
 update(updates, path) # データのアップデート(格納)
@@ -67,10 +69,12 @@ delete(key, path) # データの削除
 `※各メソッドのpathは任意指定.無指定の場合は，ルートディレクトリ.`
 
 ---
-### Firebaseのデータ構造
+## Firebaseのデータ構造
 <br>`data/flag`: 各ギミックのフラグのデータが格納されています。
 <br>`data/hint`: 送信するヒントのデータが格納されています。
 <br>`data/log`: 各ギミックの通過時間などのログデータが格納されています。
+
+`※細かい各データの入力形式については進行表を参照`
 
 ---
 ### 環境及び使用ライブラリ
