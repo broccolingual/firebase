@@ -11,14 +11,38 @@ pipでfirebase-adminをインストール
 #### Step2.(このスクリプトを利用する場合)
 このレポジトリのfirebase.pyをダウンロードし、ソースコード上部のデータ入力欄に先ほどのjsonファイルの内容をコピーして貼り付ける。FIREBASE_URLには、`https://magiot.firebaseio.com/`を貼り付ける。
 
+<br>`firebase.py`
+```python
+# ~上部省略~
+# ------データ入力欄------
+# FIREBASE_URL (データベースのURLを記述)
+FIREBASE_URL = ""
+
+# FIREBASE認証データ (jsonファイルの内容をコピーして下に貼り付け)
+FIREBASE_AUTH_DATA = {
+  "type": "",
+  "project_id": "",
+  "private_key_id": "",
+  "private_key": "",
+  "client_email": "",
+  "client_id": "",
+  "auth_uri": "",
+  "token_uri": "",
+  "auth_provider_x509_cert_url": "",
+  "client_x509_cert_url": ""
+}
+# ----------------------
+# ~下部省略~
+```
+
 #### Step3.(このスクリプトを利用する場合)
 自分の作成したpythonプログラムからfirebase.pyをインポートし、Firebaseオブジェクトを作成する。Firebaseクラスで利用できるメソッドは以下の通りである。
 
 ---
 ### Firebaseのデータ構造
-`data/flag`: 各ギミックのフラグのデータが格納されています。
-`data/hint`: 送信するヒントのデータが格納されています。
-`data/log`: 各ギミックの通過時間などのログデータが格納されています。
+<br>`data/flag`: 各ギミックのフラグのデータが格納されています。
+<br>`data/hint`: 送信するヒントのデータが格納されています。
+<br>`data/log`: 各ギミックの通過時間などのログデータが格納されています。
 
 ---
 ### 利用可能なメソッド
