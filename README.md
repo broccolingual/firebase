@@ -1,16 +1,23 @@
-### Firebaseへの接続方法
+### pythonからFirebaseへの接続方法
 
+---
 #### Step1.
-GoogleドライブよりFirebase認証(共通DB)用のjsonファイルをダウンロードする。
+共有のGoogleドライブよりFirebase認証(共通DB)用のjsonファイルをダウンロードする。
 
+---
 #### Step2.(このスクリプトを利用しない場合)
-pipインストール等でfirebase-adminをインストール
-ライブラリの使い方に関しては、下記の記事を参考にしてください。
-`https://qiita.com/sai-san/items/24dbee74c5744033c330`
+pipインストール等でfirebase-adminのライブラリをインストールする。
+<br>DBのURLは`https://magiot.firebaseio.com/`
+を利用してください。
+<br>認証用のjsonファイルは、Step1のものを利用してください。
+<br>このスクリプトを利用しない場合のステップはここで終了です。 ライブラリの使い方に関しては、下記の記事を参考にしてください。
+<br>[参考記事(Qiita)](https://qiita.com/sai-san/items/24dbee74c5744033c330)
 
+---
 #### Step2.(このスクリプトを利用する場合)
 このレポジトリの[firebase.py](https://github.com/broccolingual/firebase/blob/master/firebase.py)
-をダウンロードし、ソースコード上部のデータ入力欄に先ほどのjsonファイルの内容をコピーして貼り付ける。FIREBASE_URLには、`https://magiot.firebaseio.com/`を貼り付ける。
+をダウンロードし、ソースコード上部のデータ入力欄にStep1のjsonファイルの内容をコピーして貼り付ける。FIREBASE_URLには、`https://magiot.firebaseio.com/`
+を貼り付ける。
 
 <br>`firebase.py`
 ```python
@@ -36,11 +43,13 @@ FIREBASE_AUTH_DATA = {
 # ~下部省略~
 ```
 
+---
 #### Step2.(このスクリプトを利用する場合(オプション:※環境変数を利用したい方向け))
 セキュリティ的に環境変数を利用したい方は[.env.sample](https://github.com/broccolingual/firebase/blob/master/.env.sample)
 を元に環境変数を設定して下さい。環境変数を設定するにはpipインストール等でpython-dotenvのライブラリをインストールする必要があります。
-<br>※.envファイルの利用も可能。
+<br>`※.envファイルの利用も可能。`
 
+---
 #### Step3.(このスクリプトを利用する場合)
 自分の作成したpythonプログラムからfirebase.pyをインポートし、Firebaseオブジェクトを作成する。Firebaseクラスで利用できるメソッドは以下の通りである。
 <br>具体的な利用方法や各メソッドの引数の与え方の例については[sample.py](https://github.com/broccolingual/firebase/blob/master/sample.py)
