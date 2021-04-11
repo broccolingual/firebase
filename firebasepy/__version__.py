@@ -1,0 +1,7 @@
+__title__ = 'firebase.py'
+__author__ = 'Broccolingual'
+__author_email__ = 'broccolingual@gmail.com'
+__url__ = 'https://github.com/broccolingual/firebase'
+__license__ = 'MIT'
+__copyright__ = 'Copyright 2021-present Broccolingual'
+__version__ = '1.3.0'
